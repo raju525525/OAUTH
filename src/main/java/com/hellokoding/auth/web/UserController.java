@@ -2,6 +2,8 @@ package com.hellokoding.auth.web;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -69,6 +71,36 @@ public class UserController {
 	public String welcome(Model model) {
 		List<TracingBean> allUserDetails = tracingService.finadallUserDetails();
 		model.addAttribute("allUserDetails", allUserDetails);
+		return "TracingTool";
+	}
+
+	@RequestMapping(value = { "/payloadTrace" }, method = RequestMethod.POST)
+	public String payloadTrace(Model model) {
+		List<TracingBean> allUserDetails = tracingService.finadallUserDetails();
+		model.addAttribute("allUserDetails", allUserDetails);
 		return "welcome";
 	}
+
+	@RequestMapping(value = { "/requestUri" }, method = RequestMethod.POST)
+	public String requestUri(Model model, HttpServletRequest request) {
+		String myString = request.getParameter("hiddenURI");
+		List<TracingBean> allUserDetails = tracingService.finadallUserDetails();
+		model.addAttribute("allUserDetails", allUserDetails);
+		return "requestURIPage";
+	}
+
+	@RequestMapping(value = { "/performanceTrace" }, method = RequestMethod.POST)
+	public String performanceTrace(Model model) {
+		List<TracingBean> allUserDetails = tracingService.finadallUserDetails();
+		model.addAttribute("allUserDetails", allUserDetails);
+		return "performanceTrace";
+	}
+
+	@RequestMapping(value = { "/PayLoadTracePage" }, method = RequestMethod.POST)
+	public String PayLoadTracePage(Model model) {
+		List<TracingBean> allUserDetails = tracingService.finadallUserDetails();
+		model.addAttribute("allUserDetails", allUserDetails);
+		return "PayLoadTracePage";
+	}
+
 }

@@ -25,6 +25,8 @@ public class TracingBean {
 	private Integer responseCode;
 	private String request_Method;
 	private String contentType_Body;
+	private String class_name;
+	private String operation_name;
 
 	public String getIp() {
 		return ip;
@@ -96,6 +98,22 @@ public class TracingBean {
 
 	public void setContentType_Body(String contentType_Body) {
 		this.contentType_Body = contentType_Body;
+	}
+
+	public String getClass_name() {
+		return class_name;
+	}
+
+	public void setClass_name(String class_name) {
+		this.class_name = class_name;
+	}
+
+	public String getOperation_name() {
+		return operation_name;
+	}
+
+	public void setOperation_name(String operation_name) {
+		this.operation_name = operation_name;
 	}
 
 }

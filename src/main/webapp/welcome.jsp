@@ -41,6 +41,31 @@
 	 });
 
 	 } */
+
+	function requestFunction(i) {
+		var uri = i;
+		document.loginform.hiddenURI.value = uri;
+		document.loginform.action = "requestUri";
+		document.loginform.method = "POST";
+		document.loginform.submit();
+	}
+
+	function PerformanceFunction() {
+		document.loginform.action = "performanceTrace";
+		document.loginform.method = "POST";
+		document.loginform.submit();
+	}
+	function payLoadFunction() {
+		document.loginform.action = "payloadTrace";
+		document.loginform.method = "POST";
+		document.loginform.submit();
+	}
+	function confgFunction() {
+		//alert("hi")
+		document.loginform.action = "welcome";
+		document.loginform.method = "GET";
+		document.loginform.submit();
+	}
 	function parent_disable() {
 		if (popupWindow && !popupWindow.closed)
 			popupWindow.focus();
@@ -67,49 +92,62 @@
 
 		<c:if test="${pageContext.request.userPrincipal.name != null}">
 			<h2>
-				Welcome ${pageContext.request.userPrincipal.name} | <a
+				Tracing Tools<br /> UserName:
+				${pageContext.request.userPrincipal.name} | <a
 					onclick="document.forms['logoutForm'].submit()">Logout</a>
 			</h2>
 
-			<form id="logoutForm" method="POST" action="${contextPath}/logout">
+			<form name="loginform" id="logoutForm" method="POST"
+				action="${contextPath}/logout">
 				<input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}" /> <br />
+					value="${_csrf.token}" /> <br /> <br />
 
 				<div class="table-responsive">
-					<table class="table table-bordered table-striped ">
-						<thead>
-							<tr>
-								<th nowrap="nowrap">SrNo</th>
-								<th nowrap="nowrap">DateandTime</th>
-								<!-- <th nowrap="nowrap">RelativeTime</th> -->
-								<th nowrap="nowrap">Address</th>
-								<th nowrap="nowrap">http.status_code</th>
-								<th nowrap="nowrap">Method</th>
-								<th nowrap="nowrap">Server Address</th>
-								<th nowrap="nowrap">http.url</th>
-								<th nowrap="nowrap">PayLoad</th>
-							</tr>
-						</thead>
-						<tbody id="mainBody">
-							<c:forEach items="${allUserDetails}" var="allUserDetails">
+					<p>
+						<h8> <label onclick="confgFunction()">Configuration
+							||&nbsp;&nbsp;&nbsp;</label> <label onclick="PerformanceFunction()">Performance
+							Trace ||&nbsp;&nbsp;&nbsp;</label> <label onclick="payLoadFunction()">Payload
+							Trace</label> </h8>
+					<div class="table-responsive">
+						<b><p>Payload Trace :</p></b>
+						<table class="table table-bordered table-striped ">
+							<thead>
 								<tr>
-									<td>${allUserDetails.srNo}</td>
-									<td>${allUserDetails.dateandTime}</td>
-									<%-- <td>${allUserDetails.timeDiffirence}</td> --%>
-									<td>${allUserDetails.hostname}</td>
-									<td>${allUserDetails.responseCode}</td>
-									<td>${allUserDetails.request_Method}</td>
-									<td>${allUserDetails.ip}</td>
-									<td onclick="child_open('${allUserDetails.requestUri}')">${allUserDetails.requestUri}</td>
-									<td>${allUserDetails.contentType_Body}</td>
+									<th nowrap="nowrap">SrNo</th>
+									<th nowrap="nowrap">DateandTime</th>
+									<!-- <th nowrap="nowrap">RelativeTime</th> -->
+									<th nowrap="nowrap">Address</th>
+									<th nowrap="nowrap">http.status_code</th>
+									<th nowrap="nowrap">Method</th>
+									<th nowrap="nowrap">Server Address</th>
+									<th nowrap="nowrap">http.url</th>
+									<!-- <th nowrap="nowrap">PayLoad</th> -->
 								</tr>
-							</c:forEach>
+							</thead>
+							<tbody id="mainBody">
+								<c:forEach items="${allUserDetails}" var="allUserDetails">
+									<tr>
+										<td>${allUserDetails.srNo}</td>
+										<td>${allUserDetails.dateandTime}</td>
+										<%-- <td>${allUserDetails.timeDiffirence}</td> --%>
+										<td>${allUserDetails.hostname}</td>
+										<td>${allUserDetails.responseCode}</td>
+										<td>${allUserDetails.request_Method}</td>
+										<td>${allUserDetails.ip}</td>
+										<%-- <td onclick="child_open('${allUserDetails.requestUri}')">${allUserDetails.requestUri}</td> --%>
+										<td onclick="requestFunction('${allUserDetails.requestUri}')">${allUserDetails.requestUri}</td>
+										<%-- <td>${allUserDetails.contentType_Body}</td> --%>
+									</tr>
+								</c:forEach>
 
-						</tbody>
-					</table>
+							</tbody>
+						</table>
+					</div>
+
 				</div>
-
+				<input type="hidden" name="hiddenURI">
 			</form>
+
 
 
 		</c:if>
