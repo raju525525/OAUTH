@@ -26,8 +26,9 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="${contextPath}/resources/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${contextPath}/resources/css/common.css" rel="stylesheet">
+<link href="${contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <script type="text/javascript">
@@ -47,26 +48,26 @@
 		$(".responsediv").hide();
 	});
 	function payFuncation() {
-		document.loginform.action = "PayLoadTracePage";
-		document.loginform.method = "POST";
-		document.loginform.submit();
+		document.errorLogTraceForm.action = "PayLoadTracePage";
+		document.errorLogTraceForm.method = "POST";
+		document.errorLogTraceForm.submit();
 	}
 	function requestFunction() {
-		document.loginform.action = "requestUri";
-		document.loginform.method = "POST";
-		document.loginform.submit();
+		document.errorLogTraceForm.action = "requestUri";
+		document.errorLogTraceForm.method = "POST";
+		document.errorLogTraceForm.submit();
 	}
 
 	function payLoadFunction() {
-		document.loginform.action = "payloadTrace";
-		document.loginform.method = "POST";
-		document.loginform.submit();
+		document.errorLogTraceForm.action = "payloadTrace";
+		document.errorLogTraceForm.method = "POST";
+		document.errorLogTraceForm.submit();
 	}
 	function confgFunction() {
 		//alert("hi")
-		document.loginform.action = "welcome";
-		document.loginform.method = "GET";
-		document.loginform.submit();
+		document.errorLogTraceForm.action = "welcome";
+		document.errorLogTraceForm.method = "GET";
+		document.errorLogTraceForm.submit();
 	}
 	function parent_disable() {
 		if (popupWindow && !popupWindow.closed)
@@ -90,9 +91,14 @@
 	 } */
 
 	function PerformanceFunction() {
-		document.loginform.action = "performanceTrace";
-		document.loginform.method = "POST";
-		document.loginform.submit();
+		document.errorLogTraceForm.action = "performanceTrace";
+		document.errorLogTraceForm.method = "POST";
+		document.errorLogTraceForm.submit();
+	}
+	function errorLogTrace() {
+		document.errorLogTraceForm.action = "errorLogTrace";
+		document.errorLogTraceForm.method = "POST";
+		document.errorLogTraceForm.submit();
 	}
 </script>
 <body>
@@ -108,7 +114,7 @@
 			<br />
 			<br />
 
-			<form name="loginform" id="logoutForm" method="POST"
+			<form name="errorLogTraceForm" id="logoutForm" method="POST"
 				action="${contextPath}/logout">
 				<input type="hidden" name="${_csrf.parameterName}"
 					value="${_csrf.token}" />
@@ -127,27 +133,41 @@
 						<h8> <label onclick="confgFunction()">Configuration
 							||&nbsp;&nbsp;&nbsp;</label> <label onclick="PerformanceFunction()">Performance
 							Trace ||&nbsp;&nbsp;&nbsp;</label> <label onclick="payLoadFunction()">Payload
-							Trace</label> </h8>
+							Trace</label> <label onclick="errorLogTrace()">ErrorLog Traces</label> </h8>
 					<div class="table-responsive">
-						<b><p>Performance Trace :</p></b>
+						<b><p>ErrorLog Trace :</p></b>
 						<table class="table-responsive">
 							<thead>
 								<tr>
-									<th nowrap="nowrap">DateandTime</th>
-									<th nowrap="nowrap">User</th>
-									<th nowrap="nowrap">Method</th>
-									<th nowrap="nowrap">Service Call Info</th>
-									<th nowrap="nowrap">PayLoad</th>
+									<th nowrap="nowrap">SR_NO</th>
+									<th nowrap="nowrap">CLASS_NAME</th>
+									<th nowrap="nowrap">DATEAND_TIME</th>
+									<th nowrap="nowrap">ERROLINENUM</th>
+									<th nowrap="nowrap">ERRORINFO</th>
+									<th nowrap="nowrap">ERRORMETHODNAME</th>
+									<th nowrap="nowrap">ERRORTYPE</th>
+									<th nowrap="nowrap">HOSTNAME</th>
+									<th nowrap="nowrap">IP</th>
+									<th nowrap="nowrap">OPERATION_NAME</th>
+									<th nowrap="nowrap">REQUEST_URI</th>
+									<th nowrap="nowrap">RESPONSE_CODE</th>
 								</tr>
 							</thead>
 							<tbody id="mainBody">
-								<c:forEach items="${allUserDetails}" var="allUserDetails">
+								<c:forEach items="${finadallErrorDetails}" var="finadallErrorDetails">
 									<tr>
-										<td>${allUserDetails.dateandTime}</td>
-										<td>${pageContext.request.userPrincipal.name}</td>
-										<td>${allUserDetails.request_Method}</td>
-										<td onclick="payFuncation()">${allUserDetails.requestUri}</td>
-										<td>${allUserDetails.contentType_Body}</td>
+										<td>${finadallErrorDetails.sr_no}</td>
+										<td>${finadallErrorDetails.class_name}</td>
+										<td>${finadallErrorDetails.dateand_time}</td>
+										<td>${finadallErrorDetails.errorlinenum}</td>
+										<td>${finadallErrorDetails.errorinfo}</td>
+										<td>${finadallErrorDetails.errormethodname}</td>
+										<td>${finadallErrorDetails.errortype}</td>
+										<td>${finadallErrorDetails.hostname}</td>
+										<td>${finadallErrorDetails.ip}</td>
+										<td>${finadallErrorDetails.operation_name}</td>
+										<td>${finadallErrorDetails.request_uri}</td>
+										<td>${finadallErrorDetails.response_code}</td>
 									</tr>
 								</c:forEach>
 

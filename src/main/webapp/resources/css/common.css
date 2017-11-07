@@ -1,48 +1,96 @@
 body {
-    padding-top: 40px;
-    padding-bottom: 40px;
-    background-color: #eee;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	/*  background-color: #eee; */
+	background-color: #d0e4fe;
 }
 
 .form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+	max-width: 330px;
+	padding: 15px;
+	margin: 0 auto;
 }
 
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-    margin-bottom: 10px;
+.form-signin .form-signin-heading, .form-signin .checkbox {
+	margin-bottom: 10px;
 }
 
 .form-signin .checkbox {
-    font-weight: normal;
+	font-weight: normal;
 }
 
 .form-signin .form-control {
-    position: relative;
-    height: auto;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
 }
 
 .form-signin .form-control:focus {
-    z-index: 2;
+	z-index: 2;
 }
 
 .form-signin input {
-    margin-top: 10px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+	margin-top: 10px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 .form-signin button {
-    margin-top: 10px;
+	margin-top: 10px;
 }
 
 .has-error {
-    color: red
+	color: red
+}
+
+h1 {
+	color: orange;
+	text-align: center;
+}
+
+p {
+	font-family: "Times New Roman";
+	font-size: 20px;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+	background: #eee;
+}
+
+th {
+	background: #333;
+	color: white;
+	font-weight: bold;
+}
+
+td, th {
+	padding: 6px;
+	border: 1px solid #ccc;
+	text-align: left;
+}
+
+label {
+	position: relative;
+	width: 300px;
+	border: 2px dotted black;
+	margin: 15px;
+	padding: 5px;
+	font-family: AR CENA;
+	font-size: 20px;
+}
+
+table, table tr, table tr td {
+	border: 1px solid gray;
+	-moz-border: 1px solid gray;
+	-webkit-border: 1px solid gray;
+	border-collapse: collapse;
 }

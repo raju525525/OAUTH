@@ -25,7 +25,9 @@
     <![endif]-->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-
+<link href="${contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <script type="text/javascript">
@@ -42,9 +44,9 @@
 
 	 } */
 
-	function requestFunction(i) {
-		var uri = i;
-		document.loginform.hiddenURI.value = uri;
+	function requestFunction() {
+/* 		var uri = i;
+		document.loginform.hiddenURI.value = uri; */
 		document.loginform.action = "requestUri";
 		document.loginform.method = "POST";
 		document.loginform.submit();
@@ -110,7 +112,7 @@
 							Trace</label> </h8>
 					<div class="table-responsive">
 						<b><p>Payload Trace :</p></b>
-						<table class="table table-bordered table-striped ">
+						<table>
 							<thead>
 								<tr>
 									<th nowrap="nowrap">SrNo</th>
@@ -135,7 +137,7 @@
 										<td>${allUserDetails.request_Method}</td>
 										<td>${allUserDetails.ip}</td>
 										<%-- <td onclick="child_open('${allUserDetails.requestUri}')">${allUserDetails.requestUri}</td> --%>
-										<td onclick="requestFunction('${allUserDetails.requestUri}')">${allUserDetails.requestUri}</td>
+										<td onclick="requestFunction()">${allUserDetails.requestUri}</td>
 										<%-- <td>${allUserDetails.contentType_Body}</td> --%>
 									</tr>
 								</c:forEach>

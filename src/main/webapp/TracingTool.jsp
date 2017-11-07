@@ -27,7 +27,9 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+<link href="${contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <script type="text/javascript">
@@ -44,6 +46,11 @@
 	}
 	function PerformanceFunction() {
 		document.loginform.action = "performanceTrace";
+		document.loginform.method = "POST";
+		document.loginform.submit();
+	}
+	function errorLogTrace() {
+		document.loginform.action = "errorLogTrace";
 		document.loginform.method = "POST";
 		document.loginform.submit();
 	}
@@ -66,9 +73,9 @@
 				<div class="table-responsive">
 					<p>
 						<h8> <label onclick="confgFunction()">Configuration
-							||&nbsp;&nbsp;&nbsp;</label> <label onclick="PerformanceFunction()">Performance Trace
-							||&nbsp;&nbsp;&nbsp;</label> <label onclick="payLoadFunction()">Payload
-							Trace</label> </h8>
+							||&nbsp;&nbsp;&nbsp;</label> <label onclick="PerformanceFunction()">Performance
+							Trace ||&nbsp;&nbsp;&nbsp;</label> <label onclick="payLoadFunction()">Payload
+							Trace</label> <label onclick="errorLogTrace()">ErrorLog Traces</label> </h8>
 						<br /> <input type="checkbox" value="performanceTrace">
 						Performance Trace<br> <input type="checkbox"
 							name="payloadTrace" value="Car"> Payload Trace<br>

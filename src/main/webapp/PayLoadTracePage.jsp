@@ -26,7 +26,9 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<link href="${contextPath}/resources/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
 </head>
 
 <script type="text/javascript">
@@ -101,8 +103,9 @@
 
 
 		<c:if test="${pageContext.request.userPrincipal.name != null}">
-			<h2>Tracing Tools<br/>
-				UserName: ${pageContext.request.userPrincipal.name} | <a
+			<h2>
+				Tracing Tools<br /> UserName:
+				${pageContext.request.userPrincipal.name} | <a
 					onclick="document.forms['logoutForm'].submit()">Logout</a>
 			</h2>
 			</br>
@@ -130,7 +133,7 @@
 							Trace</label> </h8>
 					<div class="table-responsive">
 						<b><p>Performance Trace :</p></b>
-						<table class="table table-bordered table-striped ">
+						<table>
 							<thead>
 								<tr>
 									<th nowrap="nowrap">OperationClass</th>

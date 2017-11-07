@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.hellokoding.auth.model.ErrorBean;
 import com.hellokoding.auth.model.TracingBean;
 import com.hellokoding.auth.model.User;
+import com.hellokoding.auth.service.ErrorService;
 import com.hellokoding.auth.service.SecurityService;
 import com.hellokoding.auth.service.TracingService;
 import com.hellokoding.auth.service.UserService;
@@ -26,6 +28,9 @@ public class UserController {
 
 	@Autowired
 	private TracingService tracingService;
+
+	@Autowired
+	private ErrorService errorService;
 
 	@Autowired
 	private SecurityService securityService;
@@ -101,6 +106,24 @@ public class UserController {
 		List<TracingBean> allUserDetails = tracingService.finadallUserDetails();
 		model.addAttribute("allUserDetails", allUserDetails);
 		return "PayLoadTracePage";
+	}
+
+	@RequestMapping(value = { "/errorLogTrace" }, method = RequestMethod.POST)
+	public String errorLogTrace(@ModelAttribute("errorLogTraceForm") ErrorBean errorBean, Model model) {
+		/*List<TracingBean> allUserDetails = tracingService.finadallUserDetails();
+		model.addAttribute("allUserDetails", allUserDetails);*/
+
+		List<ErrorBean> finadallErrorDetails = null;
+		try {
+			finadallErrorDetails = errorService.finadallErrorDetails();
+			model.addAttribute("finadallErrorDetails", finadallErrorDetails);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		System.out.println(finadallErrorDetails.size());
+		return "errorLogTrace";
 	}
 
 }
