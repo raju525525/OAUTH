@@ -1,0 +1,16 @@
+{
+	"iTotalDisplayRecords": 11135,
+	"iTotalRecords": 11135,
+	"aaData": [
+		["1284", "919985287247", "Schedule sms @12:03 PM", "NIITKP", "37RgrYrKus", "2015-12-08 12:02:00.0", "0.12", "SUBMITTED", "2015-12-08 11:54:02.0"],
+		["1284", "919052210419", "Schedule sms @12:03 PM", "NIITKP", "37GxoXmCfd", "2015-12-08 12:02:00.0", "0.12", "SUBMITTED", "2015-12-08 11:54:02.0"],
+		["1285", "919985287247", "Dear user sms test from vfrst transactional Thank you.", "AurumI", "178eb309-b027-4675-b151-5a3aff7fa30b", "2015-12-08 12:06:59.0", "0.12", "SUBMITTED", "2015-12-08 12:06:59.0"],
+		["1285", "919052210419", "Dear user sms test from vfrst transactional Thank you.", "AurumI", "9881e99e-261b-4f66-a123-63cc37e447e7", "2015-12-08 12:06:59.0", "0.12", "SUBMITTED", "2015-12-08 12:06:59.0"],
+		["1286", "919985287247", "Dear user test from promotional vfrst Thank you.", "AurumI", "9dd86f85-3a5a-46df-8fe9-5eec057e6e91", "2015-12-08 12:10:30.0", "0.12", "SUBMITTED", "2015-12-08 12:10:30.0"],
+		["1286", "919052210419", "Dear user test from promotional vfrst Thank you.", "AurumI", "fb80acea-c3bf-4af0-89a5-43a4c2a98877", "2015-12-08 12:10:30.0", "0.12", "SUBMITTED", "2015-12-08 12:10:30.0"],
+		["1287", "919985287247", "schedule sms AT 12:16 PM", "AurumI", "3f47d130-a645-4bab-97e0-580aa876f795", "2015-12-08 12:15:00.0", "0.12", "SUBMITTED", "2015-12-08 12:11:47.0"],
+		["1287", "919052210419", "schedule sms AT 12:16 PM", "AurumI", "", "2015-12-08 12:15:00.0", "0.12", "NegativeResponse", "2015-12-08 12:11:47.0"],
+		["1288", "919052210419", "Dear Godha", "AurumI", "", "2015-12-08 12:17:42.0", "0.12", "NegativeResponse", "2015-12-08 12:17:42.0"],
+		["1288", "919985287247", "Dear Rajesh", "AurumI", "d401c57e-3f4d-4ecb-8a91-9a1adcbe9d1f", "2015-12-08 12:17:42.0", "0.12", "SUBMITTED", "2015-12-08 12:17:42.0"]
+	]
+}

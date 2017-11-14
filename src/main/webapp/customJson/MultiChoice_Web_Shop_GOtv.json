@@ -1,0 +1,56 @@
+{
+"requestSource":"MultiChoice_Web_Shop_GOtv",
+	"MultiChoice_Web_Shop_GOtv": [{
+		"ServiceId": "GetOnlinePaymentToken"
+	}, {
+		"ThirdPartyTransactionId": "887784877"
+	}, {
+		"UserName": "WebShop"
+	}, {
+		"Password": "f28f33d1271b21fc09759813b404939f"
+	}, {
+		"Currency": "NIR"
+	}, {
+		"AmountDue": "20"
+	}, {
+		"FirstName": "supradha"
+	}, {
+		"LastName": "reddy"
+	}, {
+		"EmailAddress": "supradha@gmail.com"
+	}, {
+		"PhoneNumber": "2341234567890"
+	}, {
+		"CustomerReference": "34111760"
+	}, {
+		"CustomerNumber": "12036876"
+	}, {
+		"SmartCardNumber": "4125966127"
+	}, {
+		"TransactionDescription": "DSTV Account TopUp"
+	}, {
+		"SuccessReturnURL": "http://www.dstv.com"
+	}, {
+		"FailureReturnURL": "http://www.dstv.com"
+	}, {
+		"BackURL": "http://www.dstv.com"
+	}, {
+		"UpdateDetailsUrl": "http://www.dstv.com"
+	}, {
+		"Country": "NG"
+	}, {
+		"FromCountry": "NG"
+	}, {
+		"InvoicePeriod": "12"
+	}, {
+		"MethodofPayment": "CASH"
+	}, {
+		"ProductCode1": "PRMW4"
+	}, {
+		"isWap": "false"
+	}, {
+		"referenceId": "3439"
+	}, {
+		"requestSourceVersion": "3.0"
+	}]
+}

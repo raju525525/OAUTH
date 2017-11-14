@@ -3,6 +3,7 @@ package com.hellokoding.auth.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,12 @@ public class TracingServiceImpl implements TracingService {
 	@Override
 	public List<TracingBean> finadallUserDetails() {
 		// TODO Auto-generated method stub
-		return tracingRepository.findallList();
+		//return tracingRepository.findallList();
+		
+		int limited = 100;
+		Pageable pageable = new PageRequest(0,limited);
+		Page<TracingBean> transactionsPage = tracingRepository.findAll(pageable);
+		return transactionsPage.getContent();
 	}
 /*
 	@Override

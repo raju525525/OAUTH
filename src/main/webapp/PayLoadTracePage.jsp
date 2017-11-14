@@ -1,52 +1,70 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />
-
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<meta name="description" content="">
-<meta name="author" content="">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta names="apple-mobile-web-app-status-bar-style"
+	content="black-translucent" />
+<title>Tracing - Dashboard</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/jquery-ui.min.css">
+<link rel="stylesheet" href="css/ripple.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<script src="js/jquery.min.js"></script>
+<script src="js/ripple.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<link rel="apple-touch-icon-precomposed"
+	href="img/apple-touch-icon-precomposed.png" />
+<script>
+	/* function editMerchant(id, merchantCode, merchantName, logoUrl) {
+		document.getElementById("id").value = id;
+		document.getElementById("merchantCode").value = merchantCode;
+		document.getElementById("merchantName").value = merchantName;
+		document.getElementById("logoUrl").value = logoUrl;
+	} */
 
-<title>Create an account</title>
-
-<link href="${contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet">
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link href="${contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet">
-<link href="${contextPath}/resources/css/common.css" rel="stylesheet">
-</head>
-
-<script type="text/javascript">
-	/* 	function openPop(i) {
-	 alert("hi"+i);
-	 $.ajax({
-	 type : "post",
-	 url : "testme", //this is my servlet
-	 data : "input=" + $('#ip').val() + "&output=" + $('#op').val(),
-	 success : function(msg) {
-	 $('#output').append(msg);
-	 }
-	 });
-
-	 } */
 	$(document).ready(function() {
-		$(".responsediv").hide();
-	});
+		  var totalRows = $('#tblData').find('tbody tr:has(td)').length;
+		  var recordPerPage = 10;
+		  var totalPages = Math.ceil(totalRows / recordPerPage);
+		  var $pages = $('<div id="pages"></div>');
+		  for (i = 0; i < totalPages; i++) {
+		    $('<span class="pageNumber">&nbsp;' + (i + 1) + '</span>').appendTo($pages);
+		  }
+		  $pages.appendTo('#tblData');
+
+		  $('.pageNumber').hover(
+		    function() {
+		      $(this).addClass('focus');
+		    },
+		    function() {
+		      $(this).removeClass('focus');
+		    }
+		  );
+
+		  $('table').find('tbody tr:has(td)').hide();
+		  var tr = $('table tbody tr:has(td)');
+		  for (var i = 0; i <= recordPerPage - 1; i++) {
+		    $(tr[i]).show();
+		  }
+		  $('span').click(function(event) {
+		    $('#tblData').find('tbody tr:has(td)').hide();
+		    var nBegin = ($(this).text() - 1) * recordPerPage;
+		    var nEnd = $(this).text() * recordPerPage - 1;
+		    for (var i = nBegin; i <= nEnd; i++) {
+		      $(tr[i]).show();
+		    }
+		  });
+		});
 
 	function requestFunction() {
 		document.loginform.action = "requestUri";
@@ -69,23 +87,6 @@
 		if (popupWindow && !popupWindow.closed)
 			popupWindow.focus();
 	}
-
-	/* 	var popupWindow = null;
-	 var url = null;
-	 function uriResponce(i) {
-	 url = i;
-	 popupWindow = window
-	 .open(
-	 url,
-	 "_blank",
-	 "directories=no, status=no, menubar=no, scrollbars=yes, resizable=no,width=800, height=320,top=300,left=300");
-
-	 }
-	 function parent_disable() {
-	 if (popupWindow && !popupWindow.closed)
-	 popupWindow.focus();
-	 } */
-
 	function uriResponce(i) {
 		url = i;
 		document.loginform.action = "PayLoadTracePage";
@@ -97,86 +98,140 @@
 		document.loginform.method = "POST";
 		document.loginform.submit();
 	}
-</script>
+	function errorLogTrace() {
+		document.loginform.action = "errorLogTrace";
+		document.loginform.method = "POST";
+		document.loginform.submit();
+	}
+</script><style type="text/css">.focus {
+  background-color: #ff00ff;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.pageNumber {
+  padding: 2px;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
 <body>
-	<div class="container">
-
-
-		<c:if test="${pageContext.request.userPrincipal.name != null}">
-			<h2>
+	<%@ include file="header.jsp"%><c:if
+		test="${pageContext.request.userPrincipal.name != null}">
+		<%-- <h2>
 				Tracing Tools<br /> UserName:
 				${pageContext.request.userPrincipal.name} | <a
 					onclick="document.forms['logoutForm'].submit()">Logout</a>
 			</h2>
-			</br>
-			</br>
+			<br />
+			<br /> --%>
+		<form:form name="loginform" commandName="loginform">
+			<input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
+			<div class="container-fluid" style="min-height: 592px">
+				<div id="main">
+					<div class="container-fluid">
+						<div class="row" style="margin-top: 2%">
+							<div class="col-md-2">
+								<div class="list-group" style="margin-left: -30px">
+									<a class="list-group-item" href="#"
+										onclick="confgFunction()"><i class="fa fa-credit-card"></i>
+										&nbsp; Configuration</a> <a class="list-group-item settingsActive" href="#"
+										onclick="PerformanceFunction()"><i class="fa fa-users"></i>
+										&nbsp; PerformanceFunction </a> <a class="list-group-item"
+										href="#" onclick="payLoadFunction()"> <i
+										class="fa fa-wifi"></i> &nbsp; Payload Trace
+									</a><a class="list-group-item" href="#" onclick="errorLogTrace()">
+										<i class="fa fa-wifi"></i> &nbsp; ErrorLog Traces
+									</a>
+								</div>
+							</div>
 
-			<form name="loginform" id="logoutForm" method="POST"
-				action="${contextPath}/logout">
-				<input type="hidden" name="${_csrf.parameterName}"
-					value="${_csrf.token}" />
+							<div class="col-md-10" style="display: block">
+								<div class="panel panel-success"
+									style="border: 1px solid #24BFBD;">
+									<div class="panel-heading"
+										style="font-size: 18px; background: #24BFBD; color: #fff">
+										<span> <i class="fa fa-credit-card"></i>
+											&nbsp;Performance Trace
+										</span>
+									</div>
+									<div class="panel-body" id="tblData">
+										<div class="table-responsive">
+											<table class="table table-striped ">
+												<tr>
+													<th>OperationClass</th>
+													<th>ServiceName</th>
+													<th>OperationName</th>
+													<th>DateAndTime</th>
+													<th>Location</th>
+													<th>RelativeTime</th>
+												</tr>
+												<c:forEach var="allUserDetails" items="${allUserDetails}">
+													<tr>
+														<td class="dashtdValue" style="padding-top: 1%">${allUserDetails.class_name}</td>
+														<td class="dashtdValue" style="padding-top: 1%">${allUserDetails.requestUri}</td>
+														<td class="dashtdValue" style="padding-top: 1%">${allUserDetails.operation_name}</td>
+														<td class="dashtdValue" style="padding-top: 1%">${allUserDetails.dateandTime}</td>
+														<td class="dashtdValue" style="padding-top: 1%">${allUserDetails.hostname}</td>
+														<td class="dashtdValue" style="padding-top: 1%">${allUserDetails.timeDiffirence}</td>
 
-
-				<!-- <input type="button" id="hide">Hide
-				</button>
-				<input type="button" id="show">Show
-				</button>
-				<br /> <br /> -->
-
-
-
-				<div class="table-responsive">
-					<p>
-						<h8> <label onclick="confgFunction()">Configuration
-							||&nbsp;&nbsp;&nbsp;</label> <label onclick="PerformanceFunction()">Performance
-							Trace ||&nbsp;&nbsp;&nbsp;</label> <label onclick="payLoadFunction()">Payload
-							Trace</label> </h8>
-					<div class="table-responsive">
-						<b><p>Performance Trace :</p></b>
-						<table>
-							<thead>
-								<tr>
-									<th nowrap="nowrap">OperationClass</th>
-									<th nowrap="nowrap">ServiceName</th>
-									<th nowrap="nowrap">OperationName</th>
-									<th nowrap="nowrap">DateAndTime</th>
-									<th nowrap="nowrap">Location</th>
-									<th nowrap="nowrap">RelativeTime</th>
-								</tr>
-							</thead>
-							<tbody id="mainBody">
-								<c:forEach items="${allUserDetails}" var="allUserDetails">
-									<tr>
-										<td>${allUserDetails.class_name}</td>
-										<td>${allUserDetails.requestUri}</td>
-										<td>${allUserDetails.operation_name}</td>
-										<td>${allUserDetails.dateandTime}</td>
-										<td>${allUserDetails.hostname}</td>
-										<td>${allUserDetails.timeDiffirence}</td>
-									</tr>
-								</c:forEach>
-
-							</tbody>
-						</table>
+													</tr>
+												</c:forEach>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-
 				</div>
+			</div>
+			<%@ include file="footer.jsp"%>
 
-				<div class="responsediv">
-					<p>If you click on the "Hide" button, I will disappear.</p>
-				</div>
+			<script>
+			$(document).ready(function() {
+				active();
+				function active() {
+					var location = window.location.href;
+					if (location == '${merchantContextPath}') {
 
-
-			</form>
-
-
-
-		</c:if>
-
-	</div>
-	<!-- /container -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
+						$("#Transactions").removeClass('active');
+						$("#dashboard").removeClass('active');
+						$("#Testing").removeClass('active');
+						$("#Users").removeClass('active');
+						$("#Settings").addClass('active');
+					} else {
+						$("#dashboard").addClass('active');
+					}
+				}
+				$("#Settings").on('click', function() {
+					active();
+				});
+				$(".levitate").ripple();
+			});
+		</script>
+			<input type="hidden" name="hiddenMerchantID" id="hiddenMerchantID"
+				value="" />
+		</form:form>
+	</c:if>
 </body>
+
 </html>

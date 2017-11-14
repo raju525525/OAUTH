@@ -1,0 +1,236 @@
+.paddinttop1 {
+	padding-top: 1% !important;
+}
+
+.PaddintingTop {
+	padding-top: 2%
+}
+
+.zeroBorder {
+	border-radius: 0px
+}
+
+.dashtdValue {
+	font-size: 15px;
+	padding-top: 15%
+}
+
+.settingsActive {
+	background: #24BFBD;
+	border: #24BFBD;
+	color: #fff;
+	padding-top:13px;
+	padding-bottom:13px
+}
+a.settingsActive
+{
+	color:#fff;
+}
+.dashtdPending {
+	color: #F0AD4E;
+	font-size: 15px;
+	font-weight: bold;
+	padding-top: 2%
+}
+
+.dashtdSuccess {
+	color: #34D283;
+	font-size: 15px;
+	font-weight: bold;
+	padding-top: 2%
+}
+
+.dashtdFailure {
+	color: #D23451;
+	font-size: 15px;
+	font-weight: bold;
+	padding-top: 2%
+}
+
+.searchbarhide {
+	position: fixed;
+	width: 15%;
+	height: auto;
+	top: 17%;
+	left: 0px;
+	background: #fff;
+	border: 1px solid #00ABA9;
+	z-index: 1;
+	margin-left: -15%;
+	cursor: pointer;
+	-webkit-transition: all 302ms ease-in;
+	-moz-transition: all 302ms ease-in;
+	-ms-transition: all 302ms ease-in;
+	-o-transition: all 302ms ease-in;
+	transition: all 302ms ease-in;
+}
+
+.searchbarShow {
+	position: fixed;
+	width: 15%;
+	height: auto;
+	top: 17%;
+	left: 0px;
+	background: #fff;
+	border: 1px solid #00ABA9;
+	z-index: 10;
+	margin-left: 0px;
+	cursor: pointer;
+	-webkit-transition: all 302ms ease-in;
+	-moz-transition: all 302ms ease-in;
+	-ms-transition: all 302ms ease-in;
+	-o-transition: all 302ms ease-in;
+	transition: all 302ms ease-in;
+}
+
+.innerSearch {
+	position: absolute;
+	width: 40px;
+	height: 40px;
+	top: 0px;
+	left: 200px;
+	background: #ffffff;
+	text-align: center;
+	border: 1px solid #00ABA9
+}
+
+.lodingMsg {
+	position: fixed;
+	width: 100%;
+	height: 700px;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 200;
+	display: none
+}
+
+.disabled {
+	pointer-events: none;
+	cursor: default;
+}
+
+.modal-lg {
+	width: 100%;
+}
+
+thead>tr {
+	background-color: #4a4a4a;
+	color: #FFF;
+	font-weight: normal;
+}
+
+thead>tr>th {
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.table-striped>thead>tr>th {
+	white-space: nowrap;
+}
+
+.table-striped>tbody>tr>td {
+	white-space: nowrap;
+	font-size: 12px;
+}
+
+tfoot input {
+	width: 100%;
+	padding: 3px;
+	box-sizing: border-box;
+}
+
+.tableHeader {
+	text-align: left;
+}
+
+tfoot {
+	display: table-header-group;
+}
+
+.dataTables_length {
+	position: absolute;
+	top: 10px;
+	left: 220px;
+}
+
+.dataTables_info {
+	position: absolute;
+	down: 0px;
+	left: 5px;
+}
+
+.ColVis {
+	padding-right: 10px;
+	padding-top: 13px;
+}
+
+.dataTables_filter {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 15px;
+}
+
+.dataTables_filter, .dataTables_info {
+	display: none;
+}
+
+.dataTables_filter input {
+	height: 30px;
+	width: 150px
+}
+
+input {
+	-moz-border-radius: 15px;
+	border-radius: 3px;
+	border: solid 1px #c7c7c7;
+	padding: 5px;
+}
+
+table.dataTable tbody td {
+	padding: 5px;
+	padding-left: 20px;
+}
+
+.lodingMsg {
+	position: fixed;
+	width: 100%;
+	height: 700px;
+	top: 0px;
+	left: 0px;
+	background-color: rgba(0, 0, 0, 0.4);
+	z-index: 200;
+	display: none
+}
+
+.btn-rounded {
+	background: transparent;
+	color: #656d78;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	border-width: 2px;
+	padding: 2px 10px;
+	font-weight: 600;
+}
+
+.myButton {
+	background-color: #A9B1A2;
+	-moz-border-radius: 28px;
+	-webkit-border-radius: 28px;
+	border-radius: 28px;
+	border: 1px solid #A9B1A2;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 12px;
+	padding: 4px 8px;
+	text-decoration: none !important;
+	text-shadow: 0px 1px 0px #2f6627;
+}
+
+.myButton:hover {
+	color: #ffffff;
+	background: #ccc
+}

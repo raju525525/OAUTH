@@ -1,0 +1,49 @@
+{
+  "MultiChoice_FB_DStv": [{
+    "ServiceId": "GetOnlinePaymentToken"
+  }, {
+    "ThirdPartyTransactionId": "887784877"
+  }, {
+    "UserName": "FB"
+  }, {
+    "Password": "36ccd8471da9cd4c4993866e06022e58"
+  }, {
+    "Currency": "NIR"
+  }, {
+    "AmountDue": "45"
+  }, {
+    "FirstName": "Santhosh"
+  }, {
+    "LastName": "nalla"
+  }, {
+    "EmailAddress": "nallas@soulstice.biz"
+  }, {
+    "PhoneNumber": "2341234567890"
+  }, {
+    "CustomerNumber": "51698606"
+  }, {
+    "SmartCardNumber": "412596612723"
+  }, {
+    "TransactionDescription": "DSTV Account TopUp"
+  }, {
+    "SuccessReturnURL": "http://www.dstv.com"
+  }, {
+    "FailureReturnURL": "http://www.dstv.com"
+  }, {
+    "BackURL": "http://www.dstv.com"
+  }, {
+    "UpdateDetailsUrl": "http://www.dstv.com"
+  }, {
+    "Country": "NG"
+  }, {
+    "InvoicePeriod": "12"
+  }, {
+    "MethodofPayment": "CASH"
+  }, {
+    "ProductCode1": "PRMW4"
+  }, {
+    "isWap": "false"
+  }, {
+    "referenceId": "3439"
+  }]
+}
